@@ -1,6 +1,6 @@
 /// status : 200
 /// message : "Login Success"
-/// data : {"id":1,"username":"testing","nama":"Romli","telp":"085334","alamat":"Solo","role":"PETUGAS","created_at":"2024-01-09T01:55:16.000000Z","updated_at":"2024-01-09T01:55:16.000000Z"}
+/// DataLogin : {"id":1,"username":"testing","nama":"Romli","telp":"085334","alamat":"Solo","role":"PETUGAS","created_at":"2024-01-09T01:55:16.000000Z","updated_at":"2024-01-09T01:55:16.000000Z"}
 
 class ResponseLogin {
   ResponseLogin({
@@ -11,17 +11,17 @@ class ResponseLogin {
   ResponseLogin.fromJson(dynamic json) {
     status = json['status'];
     message = json['message'];
-    data = json['data'] != null ? Data.fromJson(json['data']) : null;
+    data = json['DataLogin'] != null ? DataLogin.fromJson(json['DataLogin']) : null;
   }
   int? status;
   String? message;
-  Data? data;
+  DataLogin? data;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['status'] = status;
     map['message'] = message;
-    if (data != null) {
+    if (DataLogin != null) {
       map['data'] = data?.toJson();
     }
     return map;
@@ -38,8 +38,8 @@ class ResponseLogin {
 /// created_at : "2024-01-09T01:55:16.000000Z"
 /// updated_at : "2024-01-09T01:55:16.000000Z"
 
-class Data {
-  Data({
+class DataLogin {
+  DataLogin({
       this.id, 
       this.username, 
       this.nama, 
@@ -49,7 +49,7 @@ class Data {
       this.createdAt, 
       this.updatedAt,});
 
-  Data.fromJson(dynamic json) {
+  DataLogin.fromJson(dynamic json) {
     id = json['id'];
     username = json['username'];
     nama = json['nama'];
